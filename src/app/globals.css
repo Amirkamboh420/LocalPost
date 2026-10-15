@@ -1,0 +1,276 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* LocalPost brand palette
+   #FFFFFF  background
+   #E5E5E5  muted / borders
+   #FCA311  saffron accent (primary)
+   #14213D  deep navy (ink / dark sections)
+   #000000  pure black
+*/
+:root {
+  --radius: 0.75rem;
+  --background: #ffffff;
+  --foreground: #14213d;
+  --card: #ffffff;
+  --card-foreground: #14213d;
+  --popover: #ffffff;
+  --popover-foreground: #14213d;
+  --primary: #fca311;
+  --primary-foreground: #14213d;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #14213d;
+  --muted: #f4f4f5;
+  --muted-foreground: #6b6b73;
+  --accent: #fff5e6;
+  --accent-foreground: #14213d;
+  --destructive: #e5484d;
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --ring: #fca311;
+  --chart-1: #fca311;
+  --chart-2: #14213d;
+  --chart-3: #6b6b73;
+  --chart-4: #2dd4bf;
+  --chart-5: #f97316;
+  --sidebar: #14213d;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #fca311;
+  --sidebar-primary-foreground: #14213d;
+  --sidebar-accent: #1c2d52;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #1c2d52;
+  --sidebar-ring: #fca311;
+}
+
+.dark {
+  --background: #0b1220;
+  --foreground: #f5f5f7;
+  --card: #14213d;
+  --card-foreground: #f5f5f7;
+  --popover: #14213d;
+  --popover-foreground: #f5f5f7;
+  --primary: #fca311;
+  --primary-foreground: #14213d;
+  --secondary: #1c2d52;
+  --secondary-foreground: #f5f5f7;
+  --muted: #1c2d52;
+  --muted-foreground: #a0a3b2;
+  --accent: #1c2d52;
+  --accent-foreground: #f5f5f7;
+  --destructive: #ff6b6b;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #fca311;
+  --chart-1: #fca311;
+  --chart-2: #60a5fa;
+  --chart-3: #2dd4bf;
+  --chart-4: #f472b6;
+  --chart-5: #facc15;
+  --sidebar: #0b1220;
+  --sidebar-foreground: #f5f5f7;
+  --sidebar-primary: #fca311;
+  --sidebar-primary-foreground: #14213d;
+  --sidebar-accent: #1c2d52;
+  --sidebar-accent-foreground: #f5f5f7;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #fca311;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .bg-navy {
+    background-color: #14213d;
+  }
+  .bg-saffron {
+    background-color: #fca311;
+  }
+  .text-saffron {
+    color: #fca311;
+  }
+  .text-navy {
+    color: #14213d;
+  }
+  .gradient-saffron {
+    background-image: linear-gradient(135deg, #fca311 0%, #ff8c00 100%);
+  }
+  .gradient-navy {
+    background-image: linear-gradient(135deg, #14213d 0%, #0b1220 100%);
+  }
+  .shadow-brand {
+    box-shadow: 0 10px 40px -10px rgba(252, 163, 17, 0.45);
+  }
+  .shadow-navy {
+    box-shadow: 0 20px 50px -20px rgba(20, 33, 61, 0.5);
+  }
+}
+
+/* Custom scrollbar */
+.scroll-area-brand::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-area-brand::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-area-brand::-webkit-scrollbar-thumb {
+  background: #e5e5e5;
+  border-radius: 9999px;
+}
+.scroll-area-brand::-webkit-scrollbar-thumb:hover {
+  background: #fca311;
+}
+
+/* ---------- Dark mode overrides ----------
+   The app uses many arbitrary-value utilities (bg-white, text-[#14213d], etc.).
+   Rather than refactor every component, we remap these tokens under .dark so
+   the whole UI flips cleanly. bg-white/80 etc. are distinct classes and are
+   intentionally left to their own rgba so backdrops still work.
+----------------------------------------- */
+.dark .bg-white { background-color: #14213d; }
+.dark .bg-\[\#fafafa\] { background-color: #0b1220; }
+.dark .bg-\[\#fff5e6\] { background-color: rgba(252, 163, 17, 0.12); }
+.dark .bg-\[\#fffdf8\] { background-color: rgba(252, 163, 17, 0.05); }
+.dark .bg-\[\#f4f4f5\] { background-color: rgba(255, 255, 255, 0.06); }
+.dark .bg-\[\#f4f4f5\]\:text-\[\#6b6b73\]:hover { background-color: rgba(255, 255, 255, 0.06); }
+
+.dark .text-\[\#14213d\] { color: #f5f5f7; }
+.dark .text-\[\#6b6b73\] { color: #a0a3b2; }
+.dark .text-\[\#b07300\] { color: #fca311; }
+
+.dark .border-\[\#e5e5e5\] { border-color: rgba(255, 255, 255, 0.1); }
+.dark .border-saffron\/30 { border-color: rgba(252, 163, 17, 0.35); }
+.dark .border-saffron\/40 { border-color: rgba(252, 163, 17, 0.45); }
+.dark .border-\[\#14213d\]\/20 { border-color: rgba(255, 255, 255, 0.12); }
+
+.dark .hover\:bg-\[\#fafafa\]:hover { background-color: rgba(255, 255, 255, 0.06); }
+.dark .hover\:bg-white:hover { background-color: rgba(255, 255, 255, 0.06); }
+.dark .hover\:bg-\[\#fff5e6\]:hover { background-color: rgba(252, 163, 17, 0.18); }
+.dark .hover\:bg-\[\#14213d\]:hover { background-color: rgba(255, 255, 255, 0.08); }
+.dark .hover\:text-white:hover { color: #ffffff; }
+
+/* gradient backgrounds that use white stop */
+.dark .from-white { --tw-gradient-from: #14213d var(--tw-gradient-from-position); }
+.dark .to-white { --tw-gradient-to: #0b1220 var(--tw-gradient-to-position); }
+
+/* sidebar deepens in dark to keep contrast vs card surface */
+.dark .bg-\[\#14213d\] { background-color: #0b1220; }
+.dark .text-white\/60 { color: rgba(255, 255, 255, 0.6); }
+.dark .text-white\/70 { color: rgba(255, 255, 255, 0.7); }
+
+/* Marquee animation for logo cloud */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(252, 163, 17, 0.5); }
+  70% { box-shadow: 0 0 0 12px rgba(252, 163, 17, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(252, 163, 17, 0); }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
+
+/* View transition */
+@keyframes view-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-view-in {
+  animation: view-in 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Shimmer skeleton */
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  animation: shimmer 1.4s infinite;
+}
+.dark .shimmer::after {
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+}
